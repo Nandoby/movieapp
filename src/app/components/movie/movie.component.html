@@ -6,12 +6,14 @@
           <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path">
         </div>
         <div class="col-6 text-white">
-          <h1 class="text-white">{{ movie.title }} <span class="text-white-50 fs-5 d-block my-3">{{ movie.original_title !== movie.title ? '( '+movie.original_title+' )' : "" }}</span> </h1>
+          <h1 class="text-white display-4">{{ movie.title }} <span class="text-white-50 fs-5 d-block my-3">{{ movie.original_title !== movie.title ? '( '+movie.original_title+' )' : "" }}</span> </h1>
           <h5 class="mb-3">
             Genres :
             <span class="badge bg-secondary fs-6 me-2" *ngFor="let genre of movie.genres">{{ genre.name }}</span>
           </h5>
           <p><b>Date :</b> {{ movie.release_date | date : "dd/MM/yyyy" }}</p>
+          <h3 class="text-white">{{ movie.tagline }}</h3>
+
           <p class="lead">{{ movie.overview }}</p>
 
           <hr class="text-white">
@@ -27,6 +29,7 @@
 
 
       </div>
+
     </div>
   </div>
 </div>

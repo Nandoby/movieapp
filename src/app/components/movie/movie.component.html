@@ -19,7 +19,7 @@
           <hr class="text-white">
 
           <p>
-            <b>Pays d'origine :</b>
+            <b>Pays d'origine : </b>
             <span *ngFor="let country of movie.production_countries; let last = last">
               {{ country.iso_3166_1 | isoToFrench }} {{ last ? '' : '-' }}
             </span>

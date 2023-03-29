@@ -18,6 +18,10 @@ export class IsoToFrenchPipe implements PipeTransform {
       case "IT" : return "Italie"
       case "KR" : return "Corée"
       case "CA" : return "Canada"
+      case "MX" : return "Mexique"
+      case "IE" : return "Irlande"
+      case "CZ" : return "République Tchèque"
+      case "IN" : return "Inde"
       default : return value
     }
   }

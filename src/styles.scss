@@ -1,2 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+.owl-prev {
+  background: dodgerblue !important;
+  opacity: 0.75;
+  &:hover {
+    opacity: 1
+  }
+}
+
+.owl-next {
+  background: dodgerblue !important;
+  opacity: 0.75;
+  &:hover {
+    opacity: 1
+  }
+}

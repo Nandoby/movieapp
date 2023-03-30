@@ -8,10 +8,24 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from './components/movie/movie.component';
 import { IsoToFrenchPipe } from './pipes/iso-to-french.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, MovieComponent, IsoToFrenchPipe],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    MovieComponent,
+    IsoToFrenchPipe,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CarouselModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

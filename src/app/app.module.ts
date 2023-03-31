@@ -10,6 +10,7 @@ import { MovieComponent } from './components/movie/movie.component';
 import { IsoToFrenchPipe } from './pipes/iso-to-french.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CarouselModule} from "ngx-owl-carousel-o";
+import { PersonComponent } from './components/person/person.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     HomeComponent,
     MovieComponent,
     IsoToFrenchPipe,
+    PersonComponent,
   ],
   imports: [
     BrowserModule,

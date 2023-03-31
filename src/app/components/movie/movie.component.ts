@@ -38,6 +38,7 @@ export class MovieComponent implements OnInit, OnDestroy {
     nav: true
   }
 
+  public isLoading: boolean = true
   public movie!: Movie;
   public cast!: Casting
   private subscription!: Subscription;
@@ -50,7 +51,10 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.activatedRoute.data.subscribe(
-      ({ movie }) => (this.movie = movie)
+      ({ movie }) => {
+        this.movie = movie
+        this.isLoading = false
+      }
     );
 
     this.castingSubscription = this.activatedRoute.data.subscribe(({cast}) => this.cast = cast)

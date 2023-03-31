@@ -28,6 +28,8 @@ export class IsoToFrenchPipe implements PipeTransform {
       case "HU" : return "Hongrie"
       case "SE" : return "Suède"
       case "TR" : return "Turquie"
+      case "GR" : return "Grèce"
+      case "DK" : return "Danemark"
       default : return value
     }
   }

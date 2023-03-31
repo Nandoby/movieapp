@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-3">
+      <div class="card">
+        <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/original/'+person.profile_path" />
+
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">{{ person.name }}</h5>
+          <p *ngIf="person.birthday" class="mb-1"><span class="fw-semibold">Né le</span> : {{ person.birthday | date :
+            'dd/MM/yyyy'
+            }}</p>
+          <p *ngIf="person.place_of_birth"><span class="fw-semibold">Lieu de naissance</span> : {{ person.place_of_birth
+            }}</p>
+          <p *ngIf="person.deathday"><span class="fw-semibold">Mort le : {{ person.deathday }}</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <ng-container *ngIf="person.biography">
+        <h2>Biographie</h2>
+        <p>{{ person.biography }}</p>
+      </ng-container>
+      <h2 class="mb-5">Films <span class="badge bg-secondary fs-6">{{ movies.cast.length }}</span> </h2>
+
+      <div class="row my-3">
+        <ng-container *ngFor="let movie of showFilms(totalShow)">
+          <div class="col-3">
+            <div class="card">
+              <ng-container *ngIf="movie.poster_path; else img">
+                <a [routerLink]="'../../movie/'+movie.id">
+                  <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+movie.poster_path"
+                    [alt]="movie.original_title" />
+                </a>
+              </ng-container>
+              <ng-template #img>
+                <a [routerLink]="'../../movie/'+movie.id">
+                  <img class="card-img-top" src="../../../assets/img/default-img.gif" />
+                </a>
+              </ng-template>
+              <div class="card-body">
+                <p class="card-text">{{ movie.title }}</p>
+              </div>
+            </div>
+          </div>
+
+        </ng-container>
+
+      </div>
+      <button (click)="showMore()" class="btn btn-primary mb-3">Afficher plus</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- <img [src]="'https://image.tmdb.org/t/p/original/'+movies.cast[0].backdrop_path" /> -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MovieCredit } from 'src/app/models/movie-credit';
@@ -15,6 +15,7 @@ export class PersonComponent implements OnInit {
   public person!: Person;
   public totalShow: number = 4;
   private movieCreditSubscription!: Subscription;
+  private shouldScroll = false
 
   constructor(
     private service: FilmsService,
@@ -45,7 +46,18 @@ export class PersonComponent implements OnInit {
         ? (items = 4)
         : (items = length - this.totalShow);
 
-      this.showFilms((this.totalShow += items));
+      this.totalShow += items
+
+      setTimeout(() => {
+        const lastFilm = document.getElementById('lastFilm')
+        lastFilm?.scrollIntoView({ behavior: 'smooth' })
+
+        // Faire défiler vers l'élément d'ancrage après un court délai
+        setTimeout(() => {
+          const scrollAnchor = document.getElementById('scrollAnchor')
+          scrollAnchor?.scrollIntoView({ behavior: 'smooth' })
+        }, 500)
+      }, 100)
     }
   }
 }

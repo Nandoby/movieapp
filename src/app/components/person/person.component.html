@@ -22,10 +22,10 @@
       </ng-container>
       <h2 class="mb-5">Films <span class="badge bg-secondary fs-6">{{ movies.cast.length }}</span> </h2>
 
+
       <div class="row my-3">
-        <ng-container *ngFor="let movie of showFilms(totalShow)">
-          <div class="col-3">
-            <div class="card">
+          <div class="col-3" *ngFor="let movie of showFilms(totalShow); let i = index">
+            <div class="card" [id]="i === totalShow - 1 ? 'lastFilm' : ''">
               <ng-container *ngIf="movie.poster_path; else img">
                 <a [routerLink]="'../../movie/'+movie.id">
                   <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+movie.poster_path"
@@ -43,11 +43,10 @@
             </div>
           </div>
 
-        </ng-container>
 
       </div>
-      <button (click)="showMore()" class="btn btn-primary mb-3">Afficher plus</button>
-
+      <button *ngIf="totalShow < movies.cast.length" (click)="showMore()" class="btn btn-primary mb-3">Afficher plus</button>
+      <div id="scrollAnchor"></div>
     </div>
   </div>
 </div>
